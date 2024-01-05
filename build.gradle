@@ -8,8 +8,8 @@ version = '1.0-SNAPSHOT'
 
 def slf4jVersion = "2.0.7",
     junitVersion = "5.10.0",
-    selenideVersion = "6.19.1",
-    allureVersion = "2.21.0",
+    selenideVersion = "6.18.0",
+    allureVersion = "2.24.0",
     fakerVersion = "1.0.2"
 
 allure {
@@ -60,6 +60,12 @@ tasks.withType(Test) {
             events "started", "skipped", "failed", "standard_error", "standard_out"
             exceptionFormat "short"
         }
+    }
+}
+
+task simple_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("simple")
     }
 }
 
