@@ -69,6 +69,12 @@ task simple_test(type: Test) {
     }
 }
 
+task registration_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("Registration")
+    }
+}
+
 task smoke_test(type: Test) {
     useJUnitPlatform {
         includeTags("SMOKE")
