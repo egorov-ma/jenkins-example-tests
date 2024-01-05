@@ -6,10 +6,10 @@ plugins {
 group = 'ru.egorovma'
 version = '1.0-SNAPSHOT'
 
-def slf4jVersion = "2.0.9",
-    junitVersion = "5.10.1",
-    selenideVersion = "7.0.2",
-    allureVersion = "2.24.0",
+def slf4jVersion = "2.0.7",
+    junitVersion = "5.10.0",
+    selenideVersion = "6.19.1",
+    allureVersion = "2.21.0",
     fakerVersion = "1.0.2"
 
 allure {
