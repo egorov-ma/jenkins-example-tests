@@ -1,10 +1,6 @@
 package ru.egorovma.tests;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.*;
-import io.qameta.allure.selenide.AllureSelenide;
-import ru.egorovma.data.TestDataForStudentRegistrationForm;
-import ru.egorovma.pages.RegistrationPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -14,6 +10,8 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import ru.egorovma.data.TestDataForStudentRegistrationForm;
+import ru.egorovma.pages.RegistrationPage;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -70,7 +68,6 @@ public class ToolsQaTest extends TestBase {
     @Link(url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Проверка заполнения всех полей")
     void studentFullRegistrationForm(TestDataForStudentRegistrationForm data) {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем страницу", () -> {
             registrationPage.openPage(TOOLS_QA_URL);
         });
@@ -117,7 +114,6 @@ public class ToolsQaTest extends TestBase {
     @Link(url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Проверка заполнения минимального кол-ва полей")
     void studentMinimumRegistrationForm(TestDataForStudentRegistrationForm data) {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем страницу", () -> {
             registrationPage.openPage(TOOLS_QA_URL);
         });
@@ -152,7 +148,6 @@ public class ToolsQaTest extends TestBase {
     @DisplayName("Проверяем различные наборы дат")
     void calendarTest(String firstName, String lastName, String gender, String userNumber,
                       String dayBirth, String monthBirth, String yearBirth) {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем страницу", () -> {
             registrationPage.openPage(TOOLS_QA_URL);
         });
@@ -185,7 +180,6 @@ public class ToolsQaTest extends TestBase {
     @Link(url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Проверяем разные наборы хобби")
     void studentHobbiesTest(List<String> hobbies) {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем страницу", () -> {
             registrationPage.openPage(TOOLS_QA_URL);
         });
@@ -200,10 +194,10 @@ public class ToolsQaTest extends TestBase {
         step("Отправляем форму регистрации", () -> registrationPage.submit());
         step("Проверка результата выбора хобби", () ->
                 registrationPage.checkResult("Student Name", data.fullName)
-                .checkResult("Gender", data.gender)
-                .checkResult("Mobile", data.userNumber)
-                .checkResult("Date of Birth", data.dateOfBirth)
-                .checkResult("Hobbies", hobbies));
+                        .checkResult("Gender", data.gender)
+                        .checkResult("Mobile", data.userNumber)
+                        .checkResult("Date of Birth", data.dateOfBirth)
+                        .checkResult("Hobbies", hobbies));
     }
 
     @Test
@@ -218,7 +212,6 @@ public class ToolsQaTest extends TestBase {
     @Link(url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Проверка отправки не заполненной ЭФ")
     void negativeStudentRegistrationForm() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем страницу", () -> {
             registrationPage.openPage(TOOLS_QA_URL);
         });
@@ -242,7 +235,6 @@ public class ToolsQaTest extends TestBase {
     @Link(url = "https://demoqa.com/automation-practice-form")
     @DisplayName("Проверка различных наборов мобильного телефона")
     void userNumberTest(String userNumber) {
-        SelenideLogger.addListener("allure", new AllureSelenide());
         step("Открываем страницу", () -> {
             registrationPage.openPage(TOOLS_QA_URL);
         });
