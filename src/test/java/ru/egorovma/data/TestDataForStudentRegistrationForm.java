@@ -40,13 +40,29 @@ public class TestDataForStudentRegistrationForm {
         }
     }
 
+//    не годится для jdk11 ((
+//    private String getRandomCity(String state) {
+//        return switch (state) {
+//            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
+//            case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
+//            case "Haryana" -> faker.options().option("Karnal", "Panipat");
+//            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
+//            default -> throw new IllegalArgumentException("Unsupported state: " + state);
+//        };
+//    }
+
     private String getRandomCity(String state) {
-        return switch (state) {
-            case "NCR" -> faker.options().option("Delhi", "Gurgaon", "Noida");
-            case "Uttar Pradesh" -> faker.options().option("Agra", "Lucknow", "Merrut");
-            case "Haryana" -> faker.options().option("Karnal", "Panipat");
-            case "Rajasthan" -> faker.options().option("Jaipur", "Jaiselmer");
-            default -> throw new IllegalArgumentException("Unsupported state: " + state);
-        };
+        switch (state) {
+            case "NCR":
+                return faker.options().option("Delhi", "Gurgaon", "Noida");
+            case "Uttar Pradesh":
+                return faker.options().option("Agra", "Lucknow", "Merrut");
+            case "Haryana":
+                return faker.options().option("Karnal", "Panipat");
+            case "Rajasthan":
+                return faker.options().option("Jaipur", "Jaiselmer");
+            default:
+                throw new IllegalStateException("Unexpected value: " + state);
+        }
     }
 }
