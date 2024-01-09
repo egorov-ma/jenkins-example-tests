@@ -37,7 +37,5 @@ public class TestBase {
         Attach.pageSource();
         Attach.browserConsoleLogs();
         Attach.addVideo();
-
-        closeWebDriver();
     }
 }
