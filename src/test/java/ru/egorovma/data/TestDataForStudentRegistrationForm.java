@@ -19,7 +19,7 @@ public class TestDataForStudentRegistrationForm {
             dateOfBirth = dateOfBirthGenerator.getCustomFormattedDate(),
             subjects = faker.options().option("Accounting", "Biology", "Chemistry", "English", "Hindi", "Maths", "Physics"),
             hobbies = faker.options().option("Sports", "Reading", "Music"),
-            picture = faker.options().option("qaguru0.jpg", "qaguru1.jpg", "qaguru2.jpg"),
+            picture = faker.options().option("test_data/qaguru0.jpg", "test_data/qaguru1.jpg", "test_data/qaguru2.jpg"),
             state = faker.options().option("NCR", "Uttar Pradesh", "Haryana", "Rajasthan"),
             city = getRandomCity(state),
             stateAndCity = state + " " + city;
